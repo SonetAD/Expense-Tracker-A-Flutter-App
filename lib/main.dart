@@ -19,18 +19,20 @@ class HomePage extends StatelessWidget {
           ),
           backgroundColor: Colors.red[900],
         ),
-        body: Column(
-          children: [
-            // Chart
-            Container(
-              padding: const EdgeInsets.all(10),
-              child: const Card(
-                child: Text('CHART'),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              // Chart
+              Container(
+                padding: const EdgeInsets.all(10),
+                child: const Card(
+                  child: Text('CHART'),
+                ),
               ),
-            ),
-            // Body
-            PopulateTransactionList(),
-          ],
+              // Body
+              PopulateTransactionList(),
+            ],
+          ),
         ),
       ),
     );
