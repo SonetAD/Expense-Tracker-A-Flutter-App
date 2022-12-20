@@ -7,6 +7,14 @@ class AddTask extends StatelessWidget {
 
   AddTask(this.addTaskBtn);
 
+  void addNewTransaction() {
+    final title = titleController.text;
+    final amount = double.parse(amountContr4oller.text);
+    if (title != '' || amount >= 0) {
+      addTaskBtn(title, amount);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -16,15 +24,15 @@ class AddTask extends StatelessWidget {
           decoration: const InputDecoration(labelText: 'Title'),
         ),
         TextField(
+          keyboardType: TextInputType.number,
+          onSubmitted: (x) => this.addNewTransaction(),
           controller: amountContr4oller,
           decoration: const InputDecoration(labelText: 'Amount'),
         ),
         Container(
           margin: const EdgeInsets.all(10),
           child: TextButton(
-              onPressed: () =>
-                  addTaskBtn(titleController.text, amountContr4oller.text),
-              child: const Text('ADD')),
+              onPressed: this.addNewTransaction, child: const Text('ADD')),
         )
       ]),
     );

@@ -21,7 +21,7 @@ class _PopulateTransactionListState extends State<PopulateTransactionList> {
     return formatter.format(now);
   }
 
-  void addTaskBtn(String title, String amount) {
+  void addTaskBtn(String title, double amount) {
     final newTransaction = {
       'title': title,
       'amount': amount,
