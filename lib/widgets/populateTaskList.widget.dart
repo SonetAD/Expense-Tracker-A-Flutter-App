@@ -35,8 +35,10 @@ class _PopulateTransactionListState extends State<PopulateTransactionList> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [AddTask(addTaskBtn), TransactionList(transactions)],
+    return SingleChildScrollView(
+      child: Column(
+        children: [AddTask(addTaskBtn), TransactionList(transactions)],
+      ),
     );
   }
 }

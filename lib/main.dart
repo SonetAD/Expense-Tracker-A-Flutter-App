@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import './widgets/populateTaskList.widget.dart';
 
-void main() => runApp(const HomePage());
+void main() => runApp(MaterialApp(home: const HomePage()));
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  void startAddNewTransaction(BuildContext ctx) {
+    showModalBottomSheet(
+        context: ctx, builder: (_) => PopulateTransactionList());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +38,10 @@ class HomePage extends StatelessWidget {
               PopulateTransactionList(),
             ],
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () => startAddNewTransaction(context),
         ),
       ),
     );
