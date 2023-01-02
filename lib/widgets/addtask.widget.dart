@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
 
-class AddTask extends StatelessWidget {
+class AddTask extends StatefulWidget {
   final Function addTaskBtn;
-  final titleController = TextEditingController();
-  final amountContr4oller = TextEditingController();
 
   AddTask(this.addTaskBtn);
+
+  @override
+  State<AddTask> createState() => _AddTaskState();
+}
+
+class _AddTaskState extends State<AddTask> {
+  final titleController = TextEditingController();
+
+  final amountContr4oller = TextEditingController();
 
   void addNewTransaction() {
     final title = titleController.text;
     final amount = double.parse(amountContr4oller.text);
     if (title != '' || amount >= 0) {
-      addTaskBtn(title, amount);
+      widget.addTaskBtn(title, amount);
     }
   }
 
