@@ -11,7 +11,7 @@ class TransactionList extends StatelessWidget {
       height: 500,
       child: ListView.builder(
         itemCount: transactions.length,
-        itemBuilder: (ctx, i) {
+        itemBuilder: (_, i) {
           return Container(
             margin: const EdgeInsets.all(10),
             padding: const EdgeInsets.all(10),
@@ -31,12 +31,16 @@ class TransactionList extends StatelessWidget {
                         "\$${transactions[i]['amount'].toStringAsFixed(2)}",
                         style: const TextStyle(
                             fontSize: 20,
-                            color: Colors.red,
+                            color: Colors.pink,
                             fontWeight: FontWeight.bold),
                       )),
                   Column(
                     children: [
-                      Text(transactions[i]['title']),
+                      Text(
+                        transactions[i]['title'],
+                        style: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.bold),
+                      ),
                       Text(transactions[i]['time']),
                     ],
                   )
