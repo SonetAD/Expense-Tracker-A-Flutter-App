@@ -36,17 +36,24 @@ class _HomePageState extends State<HomePage> {
   void startAddNewTransaction(BuildContext ctx) {
     showModalBottomSheet(
       context: ctx,
-      builder: (_) => GestureDetector(
-        child: AddTask(addTaskBtn),
-        onTap: () => null,
-        behavior: HitTestBehavior.opaque,
-      ),
+      builder: (_) => AddTask(addTaskBtn),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Expense Tracker',
+      theme: ThemeData(
+          primarySwatch: Colors.pink,
+          accentColor: Colors.amber,
+          textTheme: TextTheme(
+              headline1: TextStyle(
+                  fontFamily: 'Lato',
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold)),
+          appBarTheme:
+              AppBarTheme(titleTextStyle: TextStyle(fontFamily: 'Open Sans'))),
       home: Scaffold(
         appBar: AppBar(
           title: const Text(
@@ -55,7 +62,6 @@ class _HomePageState extends State<HomePage> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          backgroundColor: Colors.red[900],
           actions: [
             IconButton(
                 onPressed: () => startAddNewTransaction(context),
@@ -77,7 +83,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.red,
           onPressed: () => startAddNewTransaction(context),
           child: Icon(Icons.add),
         ),

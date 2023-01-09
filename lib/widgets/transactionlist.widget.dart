@@ -16,7 +16,7 @@ class TransactionList extends StatelessWidget {
             margin: const EdgeInsets.all(10),
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-                border: Border.all(color: Colors.pink),
+                border: Border.all(color: Theme.of(context).primaryColorDark),
                 borderRadius: BorderRadius.circular(17)),
             child: Card(
               child: Row(
@@ -29,17 +29,16 @@ class TransactionList extends StatelessWidget {
                       margin: const EdgeInsets.only(right: 20),
                       child: Text(
                         "\$${transactions[i]['amount'].toStringAsFixed(2)}",
-                        style: const TextStyle(
+                        style: TextStyle(
+                            color: Theme.of(context).primaryColor,
                             fontSize: 20,
-                            color: Colors.pink,
                             fontWeight: FontWeight.bold),
                       )),
                   Column(
                     children: [
                       Text(
                         transactions[i]['title'],
-                        style: TextStyle(
-                            fontSize: 17, fontWeight: FontWeight.bold),
+                        style: Theme.of(context).textTheme.headline1,
                       ),
                       Text(transactions[i]['time']),
                     ],
